@@ -1,0 +1,10 @@
+.border-box {
+    border: .5px;
+    border-style:solid;
+    border-color: black;
+    margin: 1em;
+    padding: 1em;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+}

@@ -3,6 +3,7 @@ import axios from 'axios';
 import MusicTable from './components/MusicTable/MusicTable'
 import SearchBar from "./components/SearchBar/SearchBar";
 import MusicForm from './components/MusicForm/MusicForm'
+import './components/App.css';
 
 function App() {
     
@@ -16,8 +17,14 @@ function App() {
     setSongs(matchingTitles)
     console.log(matchingTitles)
   }
-  
-
+  function searchSongs(search){
+    let matchingTitles = songs.filter((song)=>{
+      return song.artist === search
+    }
+    )
+    setSongs(matchingTitles)
+    console.log(matchingTitles)
+  }
   useEffect(() => {
     getAllSongs();
   }, [])
@@ -41,16 +48,28 @@ function App() {
     } catch (error) {
       console.error(error);
     }
+    
   }
   
 
   return (
     <div >
       <SearchBar searchSongs={searchSongs} />
-      <MusicTable parentSongs = {songs}/>
-      <MusicForm addNewEntry={addNewEntry}/> 
-      
-
+        <div className="container-fluid" >
+          <div className="row" >
+            <div className="col-mid-6">
+              <div className="border-box">
+                <MusicTable parentSongs = {songs}/>
+            </div>
+          </div>
+          <div className="col-mid-6">
+          <div className="border-box">
+            <MusicForm addNewEntry={addNewEntry}/>
+          </div>
+          </div>
+         
+        </div>
+    </div>
     </div>
   );
 }

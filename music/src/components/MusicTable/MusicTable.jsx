@@ -1,11 +1,12 @@
 
 const MusicTable = (props) =>{
     const handleDelete = (id) => {
-        deleteEntry(id);
+    //    return
+    //         deleteEntry(id);
       };
     
     return(
-        <table>
+        <table className="table">
             <thead>
                 <tr>
                 <th>ID #</th>

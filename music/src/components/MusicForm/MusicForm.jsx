@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './MusicForm.css'
 const AddEntryForm = (props) =>{
     const [title, setTitle]= useState ('')
     const [artist, setArtist]= useState('')
@@ -21,18 +21,28 @@ const AddEntryForm = (props) =>{
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-grid">
+            <div className='form-group'>
             <label>Title</label>
             <input type= 'text' value={title} onChange = {(event) => setTitle(event.target.value)} />
+            </div>
+            <div className='form-group'>
             <label>Artist</label>
             <input type= 'text' value={artist} onChange = {(event) => setArtist(event.target.value)} />
+            </div>
+            <div className='form-group'>
             <label>Album</label>
             <input type= 'text' value={album} onChange = {(event) => setAlbum(event.target.value)} />
+            </div>
+            <div className='form-group'>
             <label>Release Date</label>
             <input type= 'Date' value={release_date} onChange = {(event) => setRelease_date(event.target.value)} />
+            </div>
+            <div className='form-group'>
             <label>Genre</label>
             <input type= 'text' value={genre} onChange = {(event) => setGenre(event.target.value)} />
-            <button type = 'submit'> Add Song </button>
+            </div>
+            <button type = 'submit' className='btn-btn-primary' style={{'margin-top': '1rem'}} >Add Song </button>
 
         </form>
     )
