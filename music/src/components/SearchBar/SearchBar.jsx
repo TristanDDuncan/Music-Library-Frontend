@@ -15,7 +15,7 @@ const SearchBar = ({ searchSongs }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Search..." value={searchTerm} onChange={handleChange} />
-      <button type="submit">Search</button>
+      <button type="submit" data-testid="search">Search</button>
     </form>
   );
 };

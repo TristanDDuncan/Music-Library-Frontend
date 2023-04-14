@@ -17,14 +17,6 @@ function App() {
     setSongs(matchingTitles)
     console.log(matchingTitles)
   }
-  function searchSongs(search){
-    let matchingTitles = songs.filter((song)=>{
-      return song.artist === search
-    }
-    )
-    setSongs(matchingTitles)
-    console.log(matchingTitles)
-  }
   useEffect(() => {
     getAllSongs();
   }, [])
@@ -40,21 +32,13 @@ function App() {
     getAllSongs();
 
   }
-  async function deleteEntry(id) {
-    try {
-      const response = await axios.delete(`http://127.0.0.1:5000/api/musiclibrarys/${id}`);
-      console.log(response.data);
-      getAllSongs();
-    } catch (error) {
-      console.error(error);
-    }
-    
-  }
+  
+
   
 
   return (
     <div >
-      <SearchBar searchSongs={searchSongs} />
+      <SearchBar data-test="search" searchSongs={searchSongs} />
         <div className="container-fluid" >
           <div className="row" >
             <div className="col-mid-6">
